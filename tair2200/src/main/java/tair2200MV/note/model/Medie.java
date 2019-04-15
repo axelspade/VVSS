@@ -28,9 +28,9 @@ public class Medie {
 		this.medie = medie;
 	}
 	
-	public String toString() {
-		return this.elev.getNume() + " -> " + this.medie;
-	}
+	//public String toString() {
+	//	return this.elev.getNume() + " -> " + this.medie;
+	//}
 	
 	
 }

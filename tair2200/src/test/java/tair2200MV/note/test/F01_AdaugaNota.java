@@ -5,9 +5,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import tair2200MV.note.controller.NoteController;
+import tair2200MV.note.model.Elev;
 import tair2200MV.note.model.Nota;
 import tair2200MV.note.utils.Constants;
 import tair2200MV.note.validator.ClasaException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -16,8 +20,7 @@ public class F01_AdaugaNota {
     private NoteController ctrl;
 
     @Before
-    public void init(){
-        ctrl = new NoteController();
+    public void init(){ ctrl = new NoteController();
     }
 
     @Rule
@@ -35,7 +38,7 @@ public class F01_AdaugaNota {
     public void  ECP_invalid_01() throws ClasaException
     {
         expectedEx.expect(ClasaException.class);
-        expectedEx.expectMessage(Constants.invalidNota);
+       // expectedEx.expectMessage(Constants.invalidNota);
         Nota nota = new Nota(5,"Matematica",-1);
         ctrl.addNota(nota);
     }
@@ -101,6 +104,7 @@ public class F01_AdaugaNota {
         expectedEx.expectMessage(Constants.invalidNota);
         Nota nota = new Nota(1,"Matematica",0);
         ctrl.addNota(nota);
+        assertEquals(0,ctrl.getNote().size());
     }
 
     @Test
@@ -188,7 +192,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_13() throws ClasaException
+    public void  BVA_invalid_13() throws ClasaException
     {
         expectedEx.expect(ClasaException.class);
         expectedEx.expectMessage(Constants.invalidMateria);
@@ -197,7 +201,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_14() throws ClasaException
+    public void  BVA_invalid_14() throws ClasaException
     {
         Nota nota = new Nota(5,"Matem",10);
         ctrl.addNota(nota);
@@ -205,7 +209,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_15() throws ClasaException
+    public void  BVA_invalid_15() throws ClasaException
     {
         Nota nota = new Nota(5,"Matema",10);
         ctrl.addNota(nota);
@@ -213,7 +217,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_16() throws ClasaException
+    public void  BVA_invalid_16() throws ClasaException
     {
         Nota nota = new Nota(5,"MatematicaMatematica",10);
         ctrl.addNota(nota);
@@ -221,7 +225,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_17() throws ClasaException
+    public void  BVA_invalid_17() throws ClasaException
     {
         Nota nota = new Nota(5,"MatematicaMatematic",10);
         ctrl.addNota(nota);
@@ -229,7 +233,7 @@ public class F01_AdaugaNota {
     }
 
     @Test
-    public void  ECP_invalid_18() throws ClasaException
+    public void  BVA_invalid_18() throws ClasaException
     {
         expectedEx.expect(ClasaException.class);
         expectedEx.expectMessage(Constants.invalidMateria);

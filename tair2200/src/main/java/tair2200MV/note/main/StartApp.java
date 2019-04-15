@@ -3,6 +3,7 @@ package tair2200MV.note.main;
 import tair2200MV.note.controller.NoteController;
 import tair2200MV.note.model.Corigent;
 import tair2200MV.note.model.Medie;
+import tair2200MV.note.model.Nota;
 import tair2200MV.note.validator.ClasaException;
 //import tair2200MV.note.model.Nota;
 
@@ -10,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-
+import java.util.Scanner;
 
 
 //functionalitati
@@ -43,7 +44,14 @@ public class StartApp {
 		    try {
 				int option = Integer.parseInt(br.readLine());
 				switch(option) {
-				case 1: break;
+				case 1: Scanner scanner = new Scanner(System.in);
+						int nrmatricol = scanner.nextInt();
+						String materie = scanner.next();
+						int notaval = scanner.nextInt();
+						Nota nota = new Nota(nrmatricol,materie,notaval);
+						//Nota nota = new Nota(nrmatricol,materie,3.5);
+						ctrl.addNota(nota);
+						break;
 				case 2: medii = ctrl.calculeazaMedii();
 						for(Medie medie:medii)
 							System.out.println(medie);

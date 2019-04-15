@@ -4,10 +4,10 @@ public class Nota {
 	
 	private int nrMatricol; // it was before double - refactor the class
 	private String materie; // unde e specificat ca materia are intre 5 si 20 de caractere nu stiu ...
-	private int nota; //schimbat din double in int pentru ca validarea cerea int si nu avea sens...
+	private double nota; //schimbat din double in int pentru ca validarea cerea int si nu avea sens...
 	                  // refactorizat mai jos
 	
-	public Nota(int nrMatricol, String materie, int nota) {
+	public Nota(int nrMatricol, String materie, double nota) {
 		this.setNrMatricol(nrMatricol);
 		this.setMaterie(materie);
 		this.setNota(nota);
@@ -44,14 +44,14 @@ public class Nota {
 	/**
 	 * @return the nota
 	 */
-	public int getNota() {
+	public double getNota() {
 		return nota;
 	}
 
 	/**
 	 * @param nota the nota to set
 	 */
-	public void setNota(int nota) {
+	public void setNota(double nota) {
 		this.nota = nota;
 	}
 	
